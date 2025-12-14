@@ -195,13 +195,7 @@ h1, h2, h3 { font-weight: 400; text-transform: uppercase; }
     justify-content: flex-end;
 }
 
-/* .card-footer-extra {
-    grid-area: button;
-    align-self: end; 
-    display: flex;
-    align-items: center;
-    margin-top: .4px; 
-} */
+
 
 
 .card-footer-extra {
@@ -209,6 +203,7 @@ h1, h2, h3 { font-weight: 400; text-transform: uppercase; }
     align-self: center; 
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .select-btn {
