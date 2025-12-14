@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Freshy's Window Services - High end exterior cleaning and maintenance.">
+    <title>Freshy's Window Services</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo-container">
+            <h1 class="brand-logo">Freshy's</h1>
+            <span class="brand-sub">WINDOW SERVICES</span>
+        </div>
+        <div class="header-controls">
+            <div class="theme-switch-wrapper">
+                <label for="theme-toggle">Theme</label>
+                <select id="theme-toggle">
+                    <option value="system">System</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="contact-info">
+                <p>(512) 999-5770</p>
+                <a href="mailto:freshyswindowservices@gmail.com">freshyswindowservices@gmail.com</a>
+            </div>
+            <div class="csr-badge">
+                <span>*PROCEEDS DONATED MONTHLY TO CHARITY</span>
+            </div>
+        </section>
+
+        <section class="services-container">
+            <form id="quote-form">
+                <div class="section-title">
+                    <h2>SELECT SERVICES</h2>
+                    <p>Select items below to build your quote</p>
+                </div>
+
+                <div class="grid-layout">
+                    <label class="service-card">
+                        <input type="checkbox" name="service" value="Exterior Window Cleaning">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="index">01</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <h3 class="service-title">Exterior Window<br>Cleaning</h3>
+                            <div class="card-footer">
+                                <span class="select-btn">SELECT</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="service-card">
+                        <input type="checkbox" name="service" value="Interior Window Cleaning">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="index">02</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <h3 class="service-title">Interior Window<br>Cleaning</h3>
+                            <div class="card-footer">
+                                <span class="select-btn">SELECT</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="service-card">
+                        <input type="checkbox" name="service" value="Screen Cleaning">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="index">03</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <h3 class="service-title">Screen<br>Cleaning</h3>
+                            <div class="card-footer">
+                                <span class="select-btn">SELECT</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="service-card">
+                        <input type="checkbox" name="service" value="Light Fixture Cleaning">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="index">04</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <h3 class="service-title">Light Fixture<br>Cleaning</h3>
+                            <div class="card-footer">
+                                <span class="select-btn">SELECT</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="service-card">
+                        <input type="checkbox" name="service" value="Track Cleaning">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="index">05</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <h3 class="service-title">Track<br>Cleaning</h3>
+                            <div class="card-footer">
+                                <span class="select-btn">SELECT</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="service-card">
+                        <input type="checkbox" name="service" value="Gutter Cleaning">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="index">06</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <h3 class="service-title">Gutter<br>Cleaning</h3>
+                            <div class="card-footer">
+                                <span class="select-btn">SELECT</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="service-card">
+                        <input type="checkbox" name="service" value="House Washing">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="index">07</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <h3 class="service-title">House<br>Washing</h3>
+                            <div class="card-footer">
+                                <span class="select-btn">SELECT</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="quote-action-area">
+                    <div id="selected-list" class="selected-items-display">
+                        </div>
+                    <button type="submit" class="btn-primary">GET A FREE QUOTE</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="reviews-section">
+            <div class="section-title">
+                <h2>CLIENT REVIEWS</h2>
+            </div>
+            <div class="reviews-scroller">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Freshy's completely transformed our home. The attention to detail is unmatched."</p>
+                    <span class="author">— SARAH M.</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Professional, punctual, and the charity aspect makes it even better."</p>
+                    <span class="author">— JAMES D.</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Best in Austin. My windows have never looked this clear."</p>
+                    <span class="author">— ELENA R.</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <span class="gothic-footer">Freshy's</span>
+            <span>EST. 2025 © AUSTIN, TX</span>
+            <span class="made-by">Made by Michael Roytman</span>
+        </div>
+    </footer>
+
+    <script>
+        // 1. THEME TOGGLING LOGIC
+        const themeSelect = document.getElementById('theme-toggle');
+        
+        // Check for saved preference
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        themeSelect.value = savedTheme;
+
+        themeSelect.addEventListener('change', (e) => {
+            const newTheme = e.target.value;
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // 2. REACTIVE QUOTE LOGIC
+        const form = document.getElementById('quote-form');
+        const checkboxes = document.querySelectorAll('input[name="service"]');
+        const selectedListDisplay = document.getElementById('selected-list');
+
+        // Update UI when checkboxes change
+        checkboxes.forEach(box => {
+            box.addEventListener('change', () => {
+                const parentCard = box.closest('.service-card');
+                if(box.checked) {
+                    parentCard.classList.add('active');
+                } else {
+                    parentCard.classList.remove('active');
+                }
+                updateSelectedText();
+            });
+        });
+
+        function updateSelectedText() {
+            const selected = Array.from(checkboxes)
+                .filter(i => i.checked)
+                .map(i => i.value);
+            
+            if(selected.length > 0) {
+                selectedListDisplay.textContent = "REQUESTING: " + selected.join(", ");
+                selectedListDisplay.style.opacity = "1";
+            } else {
+                selectedListDisplay.textContent = "";
+                selectedListDisplay.style.opacity = "0";
+            }
+        }
+
+        // Handle Form Submit (Mailto Generator)
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const selectedServices = Array.from(checkboxes)
+                .filter(i => i.checked)
+                .map(i => i.value);
+
+            if (selectedServices.length === 0) {
+                alert("Please select at least one service.");
+                return;
+            }
+
+            const subject = "Quote Request - Freshy's Window Services";
+            const body = `Hello Freshy's,\n\nI would like a free quote for the following services:\n\n- ${selectedServices.join('\n- ')}\n\nMy Contact Info:\n[Please insert your name and phone number here]`;
+            
+            window.location.href = `mailto:freshyswindowservices@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        });
+    </script>
+</body>
+</html>

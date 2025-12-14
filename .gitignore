@@ -1,0 +1,5 @@
+tenore/
+shoyoroll/
+
+# Ignore all .env files
+*.env   

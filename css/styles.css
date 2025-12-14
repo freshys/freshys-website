@@ -1,0 +1,289 @@
+/* --- CSS VARIABLES & THEME ENGINE --- */
+:root {
+    font-family: 'Inter', sans-serif;
+    
+    /* Theme Engine */
+    color-scheme: light dark;
+    --dark: #050505;
+    --light: #f3f3f3;
+    --fg: light-dark(var(--dark), var(--light));
+    --bg: light-dark(var(--light), var(--dark));
+    
+    /* UI Variables */
+    --border-width: 2px;
+    --border-color: var(--fg);
+    --padding-std: 1.5rem;
+    --transition: 0.2s cubic-bezier(0.46, 0.01, 0.32, 1);
+}
+
+/* Theme Attributes */
+:root[data-theme="system"] { color-scheme: light dark; }
+:root[data-theme="light"] { color-scheme: light; --fg: var(--dark); --bg: var(--light); }
+:root[data-theme="dark"] { color-scheme: dark; --fg: var(--light); --bg: var(--dark); }
+
+/* --- RESET & BASE --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg);
+    color: var(--fg);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.4;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3 { font-weight: 400; text-transform: uppercase; }
+
+.brand-logo {
+    font-family: 'UnifrakturMaguntia', cursive; /* Gothic Font */
+    font-size: 4rem;
+    line-height: 1;
+}
+
+.brand-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+}
+
+.gothic-footer {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 2rem;
+}
+
+/* --- LAYOUT UTILITIES --- */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: var(--padding-std);
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* --- THEME TOGGLE UI --- */
+.theme-switch-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#theme-toggle {
+    background: transparent;
+    border: 1px solid var(--fg);
+    color: var(--fg);
+    padding: 2px 5px;
+    font-family: 'Inter', sans-serif;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    padding: var(--padding-std);
+    border-bottom: var(--border-width) solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.contact-info a:hover { text-decoration: underline; }
+
+.csr-badge {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    border: 1px solid var(--fg);
+    display: inline-block;
+    padding: 5px 10px;
+    align-self: flex-start;
+}
+
+/* --- SERVICES GRID (Bonsai Style) --- */
+.services-container {
+    padding: var(--padding-std);
+}
+
+.section-title {
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--fg);
+    padding-left: 1rem;
+}
+
+.section-title h2 { font-size: 1.5rem; letter-spacing: -0.02em; }
+.section-title p { font-size: 0.85rem; opacity: 0.7; }
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0; /* Brutalist - lines touch */
+}
+
+/* The Service Card */
+.service-card {
+    position: relative;
+    border: var(--border-width) solid var(--border-color);
+    border-top: none; /* remove top border to avoid double borders in grid */
+    border-left: none; /* grid management */
+    aspect-ratio: 1/0.6; /* Rectangular shape */
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--bg);
+}
+
+/* Re-add borders for layout */
+.grid-layout { border-top: var(--border-width) solid var(--border-color); border-left: var(--border-width) solid var(--border-color); }
+
+.service-card:hover {
+    background: var(--fg);
+    color: var(--bg);
+}
+
+.service-card.active {
+    background: var(--fg);
+    color: var(--bg);
+}
+
+/* Hide actual checkbox */
+.service-card input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.card-content {
+    height: 100%;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-family: monospace;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 8px;
+}
+
+.service-title {
+    font-size: 1.75rem;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin: 1rem 0;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.select-btn {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+    padding: 4px 8px;
+    opacity: 0.6;
+}
+
+.service-card:hover .select-btn,
+.service-card.active .select-btn {
+    opacity: 1;
+    font-weight: bold;
+}
+
+/* --- QUOTE ACTION --- */
+.quote-action-area {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.selected-items-display {
+    font-family: monospace;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    min-height: 1.2rem;
+    transition: opacity 0.3s;
+}
+
+.btn-primary {
+    background: var(--fg);
+    color: var(--bg);
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.02);
+}
+
+/* --- REVIEWS --- */
+.reviews-section {
+    padding: var(--padding-std);
+    border-top: var(--border-width) solid var(--border-color);
+}
+
+.reviews-scroller {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+.review-card {
+    min-width: 300px;
+    border: 1px solid var(--fg);
+    padding: 1.5rem;
+    background: rgba(125, 125, 125, 0.05);
+}
+
+.stars { margin-bottom: 0.5rem; }
+.review-card p { font-style: italic; margin-bottom: 1rem; }
+.author { font-size: 0.75rem; font-weight: 700; }
+
+/* --- FOOTER --- */
+footer {
+    padding: var(--padding-std);
+    border-top: var(--border-width) solid var(--border-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+.made-by {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+    .brand-logo { font-size: 2.5rem; }
+    .service-card { aspect-ratio: auto; min-height: 200px; }
+}
