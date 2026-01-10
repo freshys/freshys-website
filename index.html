@@ -16,8 +16,8 @@
 
     <header class="site-header">
         <div class="logo-container">
-            <h1 class="brand-logo">Freshy's</h1>
-            <span class="brand-sub">WINDOW SERVICES</span>
+            <img src="assets/logo_black.png" alt="Freshy's Window Services">
+            
         </div>
         <div class="header-controls">
             <div class="theme-switch-wrapper">
@@ -38,7 +38,9 @@
                 <a href="mailto:freshyswindowservices@gmail.com">freshyswindowservices@gmail.com</a>
             </div>
             <div class="csr-badge">
-                <span>*PROCEEDS DONATED MONTHLY TO CHARITY</span>
+                <span>A percentage of proceeds supports charitable organizations. <br></br> </span>
+                At Freshy’s Window Services, we believe in giving back to the Austin community. 
+            In addition to delivering high-quality window cleaning for homes and businesses, we aim to support local organizations and community efforts that make a positive impact.</span>
             </div>
         </section>
 
@@ -46,7 +48,7 @@
             <form id="quote-form">
                 <div class="section-title">
                     <h2>SELECT SERVICES</h2>
-                    <p>Select items below to build your quote</p>
+                    <p>Select items below to build your quote, scroll for descriptions</p>
                 </div>
 
                 <div class="grid-layout">
@@ -57,7 +59,8 @@
                                 <span class="index">01</span>
                                 <span class="year">2025</span>
                             </div>
-                            <h3 class="service-title">Exterior Window<br>Cleaning</h3>
+                            <h3 class="service-title">Exterior Window Cleaning</h3>
+                            Remove dirt, grime, and environmental buildup from glass, frames, and sills to improve clarity and overall curb appeal.
                             <div class="card-footer-extra">
                                 <span class="select-btn">SELECT</span>
                             </div>
@@ -72,6 +75,7 @@
                                 <span class="year">2025</span>
                             </div>
                             <h3 class="service-title">Interior Window<br>Cleaning</h3>
+                            Focus on removing dust, fingerprints, and everyday buildup from glass and interior frames, helping maintain a clean and well-kept indoor space.
                             <div class="card-footer-extra">
                                 <span class="select-btn">SELECT</span>
                             </div>
@@ -86,6 +90,8 @@
                                 <span class="year">2025</span>
                             </div>
                             <h3 class="service-title">Screen<br>Cleaning</h3>
+                            Extract dust, pollen, and debris from window screens to improve airflow and visibility. Clean screens help keep windows looking well-maintained and support overall window care.
+
                             <div class="card-footer">
                                 <span class="select-btn">SELECT</span>
                             </div>
@@ -100,6 +106,7 @@
                                 <span class="year">2025</span>
                             </div>
                             <h3 class="service-title">Light Fixture<br>Cleaning</h3>
+                            Get rid of dust and buildup from accessible fixtures, helping maintain brightness and a clean appearance.
                             <div class="card-footer">
                                 <span class="select-btn">SELECT</span>
                             </div>
@@ -114,6 +121,7 @@
                                 <span class="year">2025</span>
                             </div>
                             <h3 class="service-title">Track<br>Cleaning</h3>
+                            Clear out dirt, dust, and buildup from window tracks, helping windows operate more smoothly and keeping surrounding areas clean.
                             <div class="card-footer">
                                 <span class="select-btn">SELECT</span>
                             </div>
@@ -128,6 +136,7 @@
                                 <span class="year">2025</span>
                             </div>
                             <h3 class="service-title">Gutter<br>Cleaning</h3>
+                            Remove leaves, debris, and buildup from your gutters to keep them clear and functioning properly, preventing water damage and maintaining your home's exterior.
                             <div class="card-footer">
                                 <span class="select-btn">SELECT</span>
                             </div>
@@ -142,6 +151,7 @@
                                 <span class="year">2025</span>
                             </div>
                             <h3 class="service-title">House<br>Washing</h3>
+                            Clean exterior surfaces to remove dirt, dust, and buildup, helping your home look refreshed.
                             <div class="card-footer">
                                 <span class="select-btn">SELECT</span>
                             </div>
@@ -157,7 +167,7 @@
             </form>
         </section>
 
-        <section class="reviews-section">
+        <!-- <section class="reviews-section">
             <div class="section-title">
                 <h2>CLIENT REVIEWS</h2>
             </div>
@@ -178,7 +188,7 @@
                     <span class="author">— ELENA R.</span>
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
 
     <footer>
@@ -188,6 +198,21 @@
             <span class="made-by">Made by Michael Roytman</span>
         </div>
     </footer>
+    <script>
+        function changelogo(){
+            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+            if(document.documentElement.getAttribute("data-theme") === "dark" || (document.documentElement.getAttribute("data-theme") === "system" && systemPrefersDark) ){
+                document.querySelector(".logo-container img").src = "assets/logo_black.png";
+                // shit way of making the logos on par
+                // only way to fix this is to use vectorize.ai to pay for png to svg conversaion for the dark theme
+                // document.querySelector(".logo-container img").style.width = "40%";
+
+            } else {
+                document.querySelector(".logo-container img").src = "assets/logo_white.png";
+            }
+        }
+    </script>
 
     <script>
         // 1. THEME TOGGLING LOGIC
@@ -198,18 +223,21 @@
         document.documentElement.setAttribute('data-theme', savedTheme);
         themeSelect.value = savedTheme;
 
+        changelogo();
+        
+
+
         themeSelect.addEventListener('change', (e) => {
             const newTheme = e.target.value;
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+            changelogo();
         });
 
-        // 2. REACTIVE QUOTE LOGIC
         const form = document.getElementById('quote-form');
         const checkboxes = document.querySelectorAll('input[name="service"]');
         const selectedListDisplay = document.getElementById('selected-list');
 
-        // Update UI when checkboxes change
         checkboxes.forEach(box => {
             box.addEventListener('change', () => {
                 const parentCard = box.closest('.service-card');

@@ -43,6 +43,11 @@ h1, h2, h3 { font-weight: 400; text-transform: uppercase; }
     line-height: 1;
 }
 
+.gothic-footer {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 2rem;
+}
+
 .brand-sub {
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
@@ -50,10 +55,6 @@ h1, h2, h3 { font-weight: 400; text-transform: uppercase; }
     font-weight: 600;
 }
 
-.gothic-footer {
-    font-family: 'UnifrakturMaguntia', cursive;
-    font-size: 2rem;
-}
 
 /* --- LAYOUT UTILITIES --- */
 .site-header {
@@ -68,6 +69,12 @@ h1, h2, h3 { font-weight: 400; text-transform: uppercase; }
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.logo-container img{
+    width: 40%;
+    height: auto;
+    display: block;
 }
 
 /* --- THEME TOGGLE UI --- */
@@ -136,13 +143,51 @@ h1, h2, h3 { font-weight: 400; text-transform: uppercase; }
 .service-card {
     position: relative;
     border: var(--border-width) solid var(--border-color);
-    border-top: none; /* remove top border to avoid double borders in grid */
-    border-left: none; /* grid management */
-    aspect-ratio: 1/0.6; /* Rectangular shape */
+    border-top: none; 
+    border-left: none; 
+    aspect-ratio: 1/0.6; 
     cursor: pointer;
     transition: var(--transition);
     background: var(--bg);
 }
+
+/* service card scrolling mods */
+.card-content {
+    height: 100%;
+    padding: 1.2rem;
+    display: grid;
+    grid-template-rows: auto 1fr; 
+    gap: 1rem;
+    
+    /* ENABLE SCROLLING */
+    overflow-y: auto;       /* Adds vertical scrollbar if content is too tall */
+    overflow-x: hidden;     /* Prevents horizontal scroll */
+    scrollbar-width: thin;  /* For Firefox: makes scrollbar less obtrusive */
+}
+
+/* styling for webkit browsers (Chrome, Safari, Edge) */
+.card-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.card-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.card-content::-webkit-scrollbar-thumb {
+    background-color: var(--fg); /* Uses your theme foreground color */
+    border-radius: 4px;
+}
+
+.card-body-scroll {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes button to bottom if space allows */
+    min-height: 100%; /* Ensures it fills the scroll area */
+    gap: 1rem;
+}
+
+/* service card scrolling mods */
 
 /* Re-add borders for layout */
 .grid-layout { border-top: var(--border-width) solid var(--border-color); border-left: var(--border-width) solid var(--border-color); }
