@@ -65,6 +65,7 @@ h1, h2, h3 { font-weight: 400; text-transform: uppercase; }
     border-bottom: var(--border-width) solid var(--border-color);
 }
 
+/* logo container on top */
 .logo-container {
     display: flex;
     flex-direction: column;
@@ -72,10 +73,20 @@ h1, h2, h3 { font-weight: 400; text-transform: uppercase; }
 }
 
 .logo-container img{
-    width: 40%;
+    width: 100%;
+    max-width: 250px;
     height: auto;
     display: block;
+    transition: width 0.2s ease margin 0.2s ease;
 }
+
+:root[data-theme="dark"] .logo-container img {
+    width: 100%; }
+:root[data-theme="light"] .logo-container img {
+    width: 98%; 
+    margin-top: 23px;
+}   
+
 
 /* --- THEME TOGGLE UI --- */
 .theme-switch-wrapper {
@@ -334,6 +345,23 @@ footer {
     align-items: center;
     gap: 0.5rem;
 }
+
+.footer-content img{
+    width: 15%;
+    max-width: 150px;
+    height: auto;
+    display: block;
+    transition: width 0.2s ease margin 0.2s ease;
+}
+
+
+:root[data-theme="dark"] .footer-content img {
+    width: 15%; }
+:root[data-theme="light"] .footer-content img {
+    width: 13%; 
+    /* margin-top: 23px; */
+}   
+
 .made-by {
     font-size: 0.8em;
     opacity: 0.7;

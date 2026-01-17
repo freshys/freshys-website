@@ -193,7 +193,9 @@
 
     <footer>
         <div class="footer-content">
-            <span class="gothic-footer">Freshy's</span>
+            <!-- <span class="gothic-footer">Freshy's</span> -->
+            <img src="assets/logo_black_cropped.png" alt="Freshy's Window Services">
+            
             <span>EST. 2025 © AUSTIN, TX</span>
             <span class="made-by">Made by Michael Roytman</span>
         </div>
@@ -204,12 +206,17 @@
 
             if(document.documentElement.getAttribute("data-theme") === "dark" || (document.documentElement.getAttribute("data-theme") === "system" && systemPrefersDark) ){
                 document.querySelector(".logo-container img").src = "assets/logo_black.png";
+
+                // also flip the footer as well
+                document.querySelector(".footer-content img").src = "assets/logo_black_cropped.png";
+
                 // shit way of making the logos on par
                 // only way to fix this is to use vectorize.ai to pay for png to svg conversaion for the dark theme
                 // document.querySelector(".logo-container img").style.width = "40%";
 
             } else {
                 document.querySelector(".logo-container img").src = "assets/logo_white.png";
+                document.querySelector(".footer-content img").src = "assets/logo_white_cropped.png";
             }
         }
     </script>

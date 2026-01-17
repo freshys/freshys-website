@@ -4,3 +4,5 @@ shoyoroll/
 # Ignore all .env files
 *.env   
 .DS_Store
+
+script.py
